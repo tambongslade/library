@@ -1,16 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './Navbar';
+import { ScrollToTop } from './ScrollToTop';
 import { Hero } from './Hero';
-import { BookShowcase } from './BookShowcase';
+import { Services } from './Services';
 import { Footer } from './Footer';
 import { Shop } from './pages/Shop';
 import { Blog } from './pages/Blog';
 import { Contact } from './pages/Contact';
+import { ServiceDetail } from './pages/ServiceDetail';
+import { Pricing } from './pages/Pricing';
+import { HowItWorks } from './pages/HowItWorks';
+import { BookReader } from './pages/BookReader';
+
 
 const Home = () => (
   <>
     <Hero />
-    <BookShowcase />
+    <Services />
 
     {/* Newsletter Section */}
     <section className="py-20 bg-secondary relative overflow-hidden">
@@ -26,7 +32,7 @@ const Home = () => (
           Abonnez-vous à notre Newsletter Stratégique
         </h2>
         <p className="text-gray-300 max-w-2xl mx-auto mb-10 text-lg">
-          Recevez les dernières analyses économiques, tendances de marché et actualités de la bibliothèque directement dans votre boîte mail.
+          Recevez les dernières analyses économiques, tendances de marché et actualités directement dans votre boîte mail.
         </p>
 
         <form className="max-w-md mx-auto flex gap-2">
@@ -47,16 +53,23 @@ const Home = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-white">
         <Navbar />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/services/:serviceId" element={<ServiceDetail />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/read/:bookId" element={<BookReader />} />
+            <Route path="/read" element={<BookReader />} /> {/* Fallback for demo without ID */}
             <Route path="/shop" element={<Shop />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             {/* Fallback routes for demo links */}
             <Route path="*" element={<Home />} />
+            <Route path="/services/*" element={<Home />} />
           </Routes>
         </main>
         <Footer />
