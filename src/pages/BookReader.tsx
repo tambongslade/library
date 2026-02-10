@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FiArrowLeft, FiChevronLeft, FiChevronRight, FiBookmark, FiList, FiZoomIn, FiZoomOut } from 'react-icons/fi';
 
 export const BookReader = () => {

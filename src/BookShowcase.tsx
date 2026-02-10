@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiHeart, FiShoppingCart, FiEye, FiStar, FiPlay, FiFileText, FiDownload, FiBook } from 'react-icons/fi';
+import { FiShoppingCart, FiEye, FiStar, FiPlay, FiFileText, FiDownload, FiBook } from 'react-icons/fi';
 import { booksData } from './data/books';
 
 export const BookShowcase = () => {
